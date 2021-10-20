@@ -1,8 +1,5 @@
 <?php
 if (isset($_FILES['image'])) {
-    // $imagick = new Imagick();
-
-
 
     $file_name = $_FILES['image']['name'];
     $file_tmp = $_FILES['image']['tmp_name'];
@@ -17,6 +14,7 @@ if (isset($_FILES['image'])) {
     $myfile = fopen("out.txt", "r") or die("Unable to open file!");
     $information = fread($myfile, filesize("out.txt"));
     $keyWords = ['tarjeta', 'identidad', 'identificación', 'documento'];
+    echo $information . '<br/>';
     $arrInfo = explode(' ', $information);
     foreach ($arrInfo as $info) {
         foreach ($keyWords as $words) {
